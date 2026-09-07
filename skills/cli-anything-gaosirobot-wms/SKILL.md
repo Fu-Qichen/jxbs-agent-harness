@@ -3,7 +3,7 @@ name: cli-anything-gaosirobot-wms
 description: "Stateful CLI harness for the Gaosi WMS backend. Covers mobile WMS workflows and business APIs over REST, with JSON output and persisted scan drafts."
 ---
 
-# cli-anything-gaosirobot-wms (v1.2.1)
+# cli-anything-gaosirobot-wms (v1.2.2)
 
 Use this skill for the Gaosi WMS CLI. The CLI keeps the server, auth tokens, and workflow scan drafts in `~/.cli-anything/gaosirobot-wms/session.json` (override with `CLI_ANYTHING_WMS_SESSION`). One-shot mutations save state automatically; `--dry-run` builds payloads without submitting or persisting.
 
@@ -15,8 +15,12 @@ Use this skill for the Gaosi WMS CLI. The CLI keeps the server, auth tokens, and
 - Install once from the bundled wheel and verify with `cli-anything-gaosirobot-wms --version`:
 
 ```bash
-pip install --no-index --find-links <skill-dir>/wheels cli_anything_gaosirobot_wms-1.1.1-py3-none-any.whl
+pip install --no-index --find-links <skill-dir>/wheels --force-reinstall --no-deps \
+  cli_anything_gaosirobot_wms-1.1.2-py3-none-any.whl
+cli-anything-gaosirobot-wms --version   # must print 1.1.2
 ```
+
+Always use `--force-reinstall`: pip skips a same-version reinstall, which leaves a stale CLI silently in place. Verify with `--version` after installing.
 
 Python >= 3.10 is required. If an online install is acceptable, omit `--no-index`.
 
@@ -202,7 +206,7 @@ The CLI may use `/MyClass/MyMethod` instead of `/MyClass/MyApi` for some mobile 
 
 `web auth login|logout|status|whoami`; `web completion list|sync`; `web finished list|detail|delete|sync|agv`; `web manufacturing list|detail`; `web master warehouses|materials|suppliers|bins|bin-tree`; `web purchasing grn-*|inbound-*|rejection-*|return-*`; `web report inventory|summary`; `web sales list|detail|sync|agv`; `web transfer list|detail|sync`.
 
-For any command with `-q/--query`, pass filters in one of three forms: repeatable `k=v` items (`-q cWhCode=B -q pageSize=500`), a combined query string (`-q "pageNum=2&pageSize=20"`), or a single JSON object (`-q '{"pageNum":1,"pageSize":100}'`). List endpoints are server-paginated (`data.page.totalNum`); always pass `pageSize` large enough or loop `pageNum` until `totalNum` rows are collected — omitting paging params returns only the first 20 rows. For an uncovered endpoint:
+For any command with `-q/--query`, pass filters in one of three forms: repeatable `k=v` items (`-q cWhCode=B -q pageSize=500`), a combined query string (`-q "pageNum=2&pageSize=20"`), or a single JSON object (`-q '{"pageNum":1,"pageSize":100}'`). All `*_list` / report commands auto-paginate: the CLI loops `pageNum` until `data.page.totalNum` rows are collected and emits the full dataset, so a single call returns everything (`pageSize` only controls per-request batch size; requires CLI >= 1.1.2). The raw `request` command is still single-call — against paginated endpoints, loop `pageNum` yourself and check `data.page.totalNum`. For an uncovered endpoint:
 
 ```bash
 cli-anything-gaosirobot-wms request GET /MyClass/MyMethod/GetPackageMin -q PackCode=PKG001
