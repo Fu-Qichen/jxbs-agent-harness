@@ -3,7 +3,7 @@ name: cli-anything-gaosirobot-wms
 description: "Stateful CLI harness for the Gaosi WMS backend. Covers purchasing, transfers, finished-goods inbound, sales, returns, package trace and messages over REST, with JSON output and session drafts."
 ---
 
-# cli-anything-gaosirobot-wms (v1.0.0)
+# cli-anything-gaosirobot-wms (v1.1.0)
 
 CLI harness for the **Gaosi WMS** mobile app backend. Stateful: server environment, auth token, and per-workflow scan drafts persist in a session file (`~/.cli-anything/gaosirobot-wms/session.json`, override with `CLI_ANYTHING_WMS_SESSION`). One-shot mutations auto-save; `--dry-run` suppresses persistence and submission.
 
@@ -137,6 +137,119 @@ Transfers: production (AddDBDMom) and warehouse (AddDBD) flows.
 - `cli-anything-gaosirobot-wms transfer submit-warehouse
   Options: `--wh-out WH_OUT` (required); `--wh-in WH_IN` (required); `--date D_DATE`; `--pos-in POS_IN`; `--user-code USER_CODE`; `--user-name USER_NAME`` — Submit the warehouse-transfer draft (AddDBD).
 - `cli-anything-gaosirobot-wms transfer warehouses` — List warehouses (GetWareHouseList).
+### web
+
+Web admin operations (gaosirobot-wms-web): lists, details, U9C sync, AGV, master data.
+
+### web auth
+
+Web admin authentication (POST /login with MD5 + tenantId).
+
+- `cli-anything-gaosirobot-wms web auth login
+  Options: `-u, --username USERNAME`; `-p, --password PASSWORD`; `--tenant-id TENANT_ID`` — Log in via web admin endpoint and persist the token.
+- `cli-anything-gaosirobot-wms web auth logout` — Log out from the web admin session.
+- `cli-anything-gaosirobot-wms web auth status` — Show web admin login state.
+- `cli-anything-gaosirobot-wms web auth whoami` — Fetch /getInfo from the server.
+### web completion
+
+Web production completion: list + U9C sync.
+
+- `cli-anything-gaosirobot-wms web completion list
+  Options: `-q, --query QUERY`` — List completion declarations (完工申报).
+- `cli-anything-gaosirobot-wms web completion sync BAR_CODES` — Sync completion declarations to U9C ERP.
+### web finished
+
+Web finished goods: inbound lists, detail, U9C sync, AGV.
+
+- `cli-anything-gaosirobot-wms web finished agv C_CODE` — Notify AGV for finished-goods inbound.
+- `cli-anything-gaosirobot-wms web finished delete C_CODES` — Delete finished-goods inbound orders.
+- `cli-anything-gaosirobot-wms web finished detail C_CODE` — Finished-goods inbound detail.
+- `cli-anything-gaosirobot-wms web finished list
+  Options: `-q, --query QUERY`` — List finished-goods inbound orders (产成品入库).
+- `cli-anything-gaosirobot-wms web finished sync C_CODES` — Sync finished-goods inbound to U9C ERP.
+### web manufacturing
+
+Web manufacturing: order lists and details.
+
+- `cli-anything-gaosirobot-wms web manufacturing detail MO_CODE` — Manufacturing order detail.
+- `cli-anything-gaosirobot-wms web manufacturing list
+  Options: `-q, --query QUERY`` — List manufacturing orders (生产工单).
+### web master
+
+Web master data: warehouses, materials, suppliers, bins.
+
+- `cli-anything-gaosirobot-wms web master bin-tree
+  Options: `-q, --query QUERY`` — Warehouse → zone → bin tree.
+- `cli-anything-gaosirobot-wms web master bins
+  Options: `-q, --query QUERY`` — List bins/positions (货位列表).
+- `cli-anything-gaosirobot-wms web master materials
+  Options: `-q, --query QUERY`` — List materials (物料列表).
+- `cli-anything-gaosirobot-wms web master suppliers
+  Options: `-q, --query QUERY`` — List suppliers (供应商列表).
+- `cli-anything-gaosirobot-wms web master warehouses
+  Options: `-q, --query QUERY`` — List warehouses (仓库列表).
+### web purchasing
+
+Web purchasing: GRN, inbound, rejection, return lists + detail + sync + delete.
+
+- `cli-anything-gaosirobot-wms web purchasing grn-delete C_CODES` — Delete arrival vouchers (comma-separated codes).
+- `cli-anything-gaosirobot-wms web purchasing grn-detail C_CODE` — Arrival voucher detail.
+- `cli-anything-gaosirobot-wms web purchasing grn-inspect C_CODES` — Mark arrival vouchers as inspected.
+- `cli-anything-gaosirobot-wms web purchasing grn-list
+  Options: `-q, --query QUERY`` — List arrival vouchers (到货单列表).
+- `cli-anything-gaosirobot-wms web purchasing inbound-delete C_CODES` — Delete purchase inbound orders.
+- `cli-anything-gaosirobot-wms web purchasing inbound-detail C_CODE` — Purchase inbound detail.
+- `cli-anything-gaosirobot-wms web purchasing inbound-list
+  Options: `-q, --query QUERY`` — List purchase inbound orders (采购入库单).
+- `cli-anything-gaosirobot-wms web purchasing inbound-sync C_CODES` — Sync purchase inbound to U9C ERP.
+- `cli-anything-gaosirobot-wms web purchasing rejection-all C_CODE` — Purchase rejection summary (for print).
+- `cli-anything-gaosirobot-wms web purchasing rejection-delete C_CODES` — Delete purchase rejection orders.
+- `cli-anything-gaosirobot-wms web purchasing rejection-detail C_CODE` — Purchase rejection detail.
+- `cli-anything-gaosirobot-wms web purchasing rejection-list
+  Options: `-q, --query QUERY`` — List purchase rejection orders (采购拒收单).
+- `cli-anything-gaosirobot-wms web purchasing return-all C_CODE` — Purchase return summary (for print).
+- `cli-anything-gaosirobot-wms web purchasing return-delete C_CODES` — Delete purchase return orders.
+- `cli-anything-gaosirobot-wms web purchasing return-detail C_CODE` — Purchase return detail.
+- `cli-anything-gaosirobot-wms web purchasing return-list
+  Options: `-q, --query QUERY`` — List purchase return orders (采购退货单).
+- `cli-anything-gaosirobot-wms web purchasing return-sync C_CODES` — Sync purchase return to U9C ERP.
+### web report
+
+Web reports: inventory detail and summary.
+
+- `cli-anything-gaosirobot-wms web report inventory
+  Options: `-q, --query QUERY`` — Inventory report — detail (库存报表).
+- `cli-anything-gaosirobot-wms web report summary
+  Options: `-q, --query QUERY`` — Inventory report — summary (库存汇总).
+### web sales
+
+Web sales: outbound lists, detail, U9C sync, AGV notification.
+
+- `cli-anything-gaosirobot-wms web sales agv C_CODE` — Notify AGV for sales outbound.
+- `cli-anything-gaosirobot-wms web sales detail C_CODE` — Sales outbound detail.
+- `cli-anything-gaosirobot-wms web sales list
+  Options: `-q, --query QUERY`` — List sales outbound orders (销售出库单).
+- `cli-anything-gaosirobot-wms web sales sync C_CODES` — Sync sales outbound to U9C ERP.
+### web system
+
+Web system management: users, roles, dict, config.
+
+- `cli-anything-gaosirobot-wms web system config CONFIG_KEY` — Get system config by key.
+- `cli-anything-gaosirobot-wms web system dict DICT_TYPE` — List dictionary data by type.
+- `cli-anything-gaosirobot-wms web system roles
+  Options: `-q, --query QUERY`` — List roles.
+- `cli-anything-gaosirobot-wms web system users
+  Options: `-q, --query QUERY`` — List system users.
+### web transfer
+
+Web transfers: production and non-production lists, detail, U9C sync.
+
+- `cli-anything-gaosirobot-wms web transfer detail C_CODE
+  Options: `--type TRANSFER_TYPE`` — Transfer detail.
+- `cli-anything-gaosirobot-wms web transfer list
+  Options: `-q, --query QUERY`; `--type TRANSFER_TYPE`` — List transfer orders.
+- `cli-anything-gaosirobot-wms web transfer sync C_CODES
+  Options: `--type TRANSFER_TYPE`` — Sync transfer to U9C ERP.
 
 ## Workflows
 
