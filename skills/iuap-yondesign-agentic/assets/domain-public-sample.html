@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公共模板示例</title>
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/yondesign.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/analytics.css"
+    />
+    <style>
+      .detail-section[data-slot="special-tips"] .alert {
+        border-radius: var(--radius-lg, 12px);
+      }
+    </style>
+    <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/echarts.min.js"></script>
+    <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/chart_runtime_v1_2.js"></script>
+  </head>
+  <body class="py-4 px-8">
+    <main class="detail-page detail-page-embedded" data-template="domain-public-report" data-domain="expense-control">
+      <div class="detail-stack">
+        <section class="detail-header" data-slot="header">
+          <h1 class="detail-title">费用执行分析公共模板示例</h1>
+          <p class="detail-meta">场景：差旅与报销执行分析 | 统计周期：2026-05 | 更新时间：2026-05-29 10:20</p>
+        </section>
+
+        <section class="detail-overview" data-slot="overview">
+          <div class="detail-overview-head">
+            <div class="detail-overview-body">
+              <div class="detail-overview-title-row">
+                <span class="detail-overview-title">华东大区费用执行概览</span>
+                <span class="detail-chip detail-chip-warning">需跟进</span>
+              </div>
+              <p class="detail-overview-subtitle">
+                用于演示公共模板在费用、经营、风控等领域的统一骨架，当前示例以差旅与报销执行为主题。
+              </p>
+              <div class="detail-overview-badges">
+                <span class="detail-chip">公共模板</span>
+                <span class="detail-chip detail-chip-neutral">报告场景</span>
+                <span class="detail-chip detail-chip-info">右侧预览可用</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-facts">
+            <div class="detail-fact">
+              <span class="detail-fact-label">分析对象</span>
+              <span class="detail-fact-value">华东大区差旅与报销单据</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">责任团队</span>
+              <span class="detail-fact-value">共享服务中心</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">数据来源</span>
+              <span class="detail-fact-value">费控系统、预算台账、审批日志</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">当前口径</span>
+              <span class="detail-fact-value">已提交且进入审批流的费用单据</span>
+            </div>
+          </div>
+
+          <div class="detail-stats">
+            <div class="detail-stat">
+              <span class="detail-stat-label">预算执行率</span>
+              <span class="detail-stat-value">91.8%</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">平均报销天数</span>
+              <span class="detail-stat-value">3.6</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">异常单据数</span>
+              <span class="detail-stat-value">26</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">待闭环事项</span>
+              <span class="detail-stat-value">4</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="conclusion">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">核心结论</h2>
+            <span class="detail-section-note">先回答是否稳定，再说明风险点</span>
+          </div>
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">当前判断</h3>
+            </div>
+            <p class="analysis-card-text">
+              总体费用执行仍处于
+              <span class="detail-summary-strong">可控区间</span>
+              ，但差旅费用在月末集中抬升，审批滞后主要集中在
+              <span class="detail-summary-strong">销售一部与交付三组</span>
+              ，需要对超标申请与延迟节点同步建立闭环动作。
+            </p>
+          </div>
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">分析发现</h3>
+            </div>
+            <p class="analysis-card-text">
+              本次示例故意保留了“结论 + 解释 + 证据图表 + 明细动作”的完整链路，方便领域方直接替换文案和数据；
+              其中 <span class="analysis-hl">预算执行率、周期、异常数</span> 分别映射主指标、效率指标和风险指标。
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="scope">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">分析口径</h2>
+            <span class="detail-section-note">明确范围、来源和排除规则</span>
+          </div>
+          <div class="detail-fields">
+            <div class="detail-field">
+              <span class="detail-field-label">统计周期</span>
+              <span class="detail-field-value">2026-05-01 至 2026-05-28</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">纳入对象</span>
+              <span class="detail-field-value">差旅、招待、办公采购三类费用单据</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">排除规则</span>
+              <span class="detail-field-value">已撤回、已作废、重复导入单据不纳入分析</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">对比基线</span>
+              <span class="detail-field-value">上月同期与年度预算目标</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="metrics">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">关键指标</h2>
+            <span class="detail-section-note">主指标、效率指标、风险指标并列展示</span>
+          </div>
+          <div class="detail-metrics">
+            <div class="detail-metric detail-metric--blue">
+              <span class="detail-metric-label">预算执行率</span>
+              <span class="detail-metric-value">91.8<span class="detail-metric-unit">%</span></span>
+              <div class="detail-metric-trend detail-metric-trend-positive">
+                <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>环比 +2.4pp</span>
+              </div>
+            </div>
+            <div class="detail-metric detail-metric--info">
+              <span class="detail-metric-label">平均报销周期</span>
+              <span class="detail-metric-value">3.6<span class="detail-metric-unit">天</span></span>
+              <div class="detail-metric-trend detail-metric-trend-positive">
+                <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>环比 -0.7 天</span>
+              </div>
+            </div>
+            <div class="detail-metric detail-metric--danger">
+              <span class="detail-metric-label">异常单据数</span>
+              <span class="detail-metric-value">26<span class="detail-metric-unit">单</span></span>
+              <div class="detail-metric-trend detail-metric-trend-negative">
+                <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>高于目标 8 单</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="progress">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">处理进度</h2>
+            <span class="detail-section-note">示例模板按四阶段推进</span>
+          </div>
+          <div class="detail-progress">
+            <div class="detail-progress-step is-done">
+              <span class="detail-progress-dot"></span>
+              <span class="detail-progress-label">数据准备</span>
+            </div>
+            <div class="detail-progress-step is-done">
+              <span class="detail-progress-dot"></span>
+              <span class="detail-progress-label">规则校验</span>
+            </div>
+            <div class="detail-progress-step is-active">
+              <span class="detail-progress-dot"></span>
+              <span class="detail-progress-label">结论生成</span>
+            </div>
+            <div class="detail-progress-step">
+              <span class="detail-progress-dot"></span>
+              <span class="detail-progress-label">复核发布</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="timeline">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">履历信息</h2>
+            <span class="detail-section-note">最近五次关键动作</span>
+          </div>
+          <div class="detail-timeline">
+            <div class="detail-timeline-item is-latest">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2026-05-29</span>
+              <p class="detail-timeline-title">异常单据复核完成</p>
+              <p class="detail-timeline-desc">确认 26 单异常中有 9 单属于月末集中提交，已移交共享服务中心跟进。</p>
+            </div>
+            <div class="detail-timeline-item is-done">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2026-05-27</span>
+              <p class="detail-timeline-title">预算执行趋势刷新</p>
+              <p class="detail-timeline-desc">同步最新预算与实际支出数据，更新趋势图与部门对比图。</p>
+            </div>
+            <div class="detail-timeline-item is-done">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2026-05-25</span>
+              <p class="detail-timeline-title">审批节点梳理</p>
+              <p class="detail-timeline-desc">识别出销售一部、交付三组在经理审批节点存在集中滞后。</p>
+            </div>
+            <div class="detail-timeline-item">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2026-05-22</span>
+              <p class="detail-timeline-title">口径确认</p>
+              <p class="detail-timeline-desc">与财务 BP 对齐差旅、招待、办公采购三类费用口径。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="insights">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">关键发现</h2>
+            <span class="detail-section-note">示例保留 3 条高价值判断</span>
+          </div>
+          <div class="insight-list">
+            <div class="insight-item">
+              <p class="insight-title">月末提交导致周期波动</p>
+              <p class="insight-desc">异常单据主要集中在 5 月最后一周，审批资源没有同步扩容，导致整体处理周期被拉长。</p>
+            </div>
+            <div class="insight-item">
+              <p class="insight-title">部门间执行差异明显</p>
+              <p class="insight-desc">销售一部费用增速高于均值，交付三组预算执行偏慢，适合在对比图中做重点标记。</p>
+            </div>
+            <div class="insight-item">
+              <p class="insight-title">公共模板适合承接统一结构</p>
+              <p class="insight-desc">当前页面已经覆盖标题、结论、图表、明细和建议，领域只需替换业务内容即可复用。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="charts">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">证据图表</h2>
+            <span class="detail-section-note">图表只服务本次结论</span>
+          </div>
+          <div class="chart-grid">
+            <article class="chart-card chart-card-wide">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">费用执行趋势</h3>
+                  <p class="chart-card-note">用于说明预算执行率与实际支出在周期内的变化方向。</p>
+                </div>
+              </div>
+              <div id="chart-expense-trend" class="chart-shell-wide"></div>
+            </article>
+            <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">部门异常对比</h3>
+                  <p class="chart-card-note">用于说明哪些团队的异常单据更集中。</p>
+                </div>
+              </div>
+              <div id="chart-department-compare" class="chart-shell-square"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="records">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">明细与动作</h2>
+            <span class="detail-section-note">把证据、状态和下一步放在同一张表内</span>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>事项</th>
+                  <th>证据说明</th>
+                  <th>状态</th>
+                  <th>下一步动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>月末集中提交</td>
+                  <td>最后 5 天提交量占全月 38%，导致审批排队明显</td>
+                  <td><span class="tag tag-warning">关注</span></td>
+                  <td>增加末周审批值守，提前提醒高频提交团队</td>
+                </tr>
+                <tr>
+                  <td>销售一部超标申请</td>
+                  <td>差旅超预算 12.4%，集中在客户拜访批次</td>
+                  <td><span class="tag tag-danger">风险</span></td>
+                  <td>复核出差事由，补充预算调整说明</td>
+                </tr>
+                <tr>
+                  <td>交付三组审批滞后</td>
+                  <td>经理审批平均耗时 1.8 天，高于均值 0.9 天</td>
+                  <td><span class="tag tag-info">待解释</span></td>
+                  <td>拆分高峰批次，核对代理审批配置</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="summary">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">结论与建议</h2>
+            <span class="detail-section-note">面向复核和后续执行</span>
+          </div>
+          <div class="detail-summary">
+            <span class="detail-summary-label">建议动作</span>
+            <span class="detail-summary-text">
+              建议保留当前预算节奏，同时对
+              <span class="detail-summary-strong">超标申请、末周集中提交、审批滞后</span>
+              三类问题建立责任人和截止时间；如果要给其他领域复用，直接替换标题、指标、图表数据和明细表即可。
+            </span>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="special-tips">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">特殊提示</h2>
+            <span class="detail-section-note">作为所有模块最后的规则提醒区</span>
+          </div>
+          <div class="alert alert-warning">
+            <div class="alert-content">
+              <div class="space space-between space-md">
+                <div class="alert-title text-warning">重点提醒</div>
+                <span class="detail-chip detail-chip-warning">需人工复核</span>
+              </div>
+              <div class="space space-col space-sm">
+                <p class="analysis-card-text text-secondary">
+                  当前异常单据中有 9 单仍处于
+                  <span class="text-warning">人工补证阶段</span>
+                  ，最终金额和周期可能在复核后回落。
+                </p>
+                <p class="analysis-card-text text-secondary">
+                  因此本页结论更适合作为
+                  <span class="text-warning">预警和跟进依据</span>
+                  ，不建议直接作为月结考核口径。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      (function() {
+        if (typeof echarts === 'undefined') {
+          return;
+        }
+
+        if (typeof YonChartRuntimeV12 === 'undefined') {
+          return;
+        }
+
+        var style = getComputedStyle(document.documentElement);
+
+        function tok(name) {
+          return style.getPropertyValue(name).trim();
+        }
+
+        var C = {
+          blue: tok('--chart-blue') || '#3b82f6',
+          cyan: tok('--chart-cyan') || '#06b6d4',
+          green: tok('--chart-green') || '#22c55e',
+          orange: tok('--chart-orange') || '#f97316',
+          textTertiary: tok('--chart-text-tertiary') || '#6b7280',
+          textMuted: tok('--chart-text-muted') || '#9ca3af',
+          border: tok('--chart-border-subtle') || '#e5e7eb',
+          font: tok('--chart-font-family') || '-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif'
+        };
+
+        var trendDom = document.getElementById('chart-expense-trend');
+        var compareDom = document.getElementById('chart-department-compare');
+
+        if (!trendDom || !compareDom) {
+          return;
+        }
+
+        YonChartRuntimeV12.mountCombo(trendDom, {
+          colors: [C.blue, C.cyan],
+          categories: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6'],
+          leftAxisName: '完成率',
+          rightAxisName: '金额',
+          series: [
+            {
+              name: '预算执行率',
+              type: 'line',
+              data: [84, 86, 88, 89, 90, 91.8]
+            },
+            {
+              name: '实际支出',
+              type: 'bar',
+              yAxisIndex: 1,
+              data: [210, 238, 256, 268, 301, 324]
+            }
+          ]
+        });
+
+        YonChartRuntimeV12.mountVerticalBar(compareDom, {
+          colors: [C.orange, C.blue, C.green, C.cyan],
+          categories: ['销售一部', '交付三组', '运营中心', '市场部'],
+          series: [
+            {
+              name: '风险单量',
+              data: [11, 8, 4, 3]
+            }
+          ]
+        });
+      })();
+    </script>
+  </body>
+</html>

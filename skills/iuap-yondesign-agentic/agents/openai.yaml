@@ -1,0 +1,4 @@
+interface:
+  display_name: "yondesign-agentic"
+  short_description: "Render domain HTML templates for YonDesign"
+  default_prompt: "Use $yondesign-agentic to generate a right-panel HTML template for my domain scenario."

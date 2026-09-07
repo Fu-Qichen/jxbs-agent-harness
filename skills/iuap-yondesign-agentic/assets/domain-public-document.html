@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>业务单据公共模板</title>
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/yondesign.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/analytics.css"
+    />
+    <style>
+      .detail-section[data-slot="special-tips"] .alert {
+        border-radius: var(--radius-lg, 12px);
+      }
+    </style>
+    <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/echarts.min.js"></script>
+    <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/chart_runtime_v1_2.js"></script>
+  </head>
+  <body class="py-4 px-8">
+    <div id="render-root">
+      <main
+        class="detail-page detail-page-embedded"
+        data-template="domain-public-document"
+        data-domain="{{domain}}"
+        data-document-kind="{{document_kind}}"
+      >
+        <div class="detail-stack">
+          <section class="detail-header" data-slot="header">
+            <h1 class="detail-title">{{title}}</h1>
+            <p class="detail-meta">{{meta}}</p>
+          </section>
+
+          <section class="detail-overview" data-slot="overview">
+            <div class="detail-overview-head">
+              {{overview_media_html}}
+              <div class="detail-overview-body">
+                <div class="detail-overview-title-row">
+                  <span class="detail-overview-title">{{overview_title}}</span>
+                  {{overview_status_html}}
+                </div>
+                <p class="detail-overview-subtitle">{{overview_subtitle}}</p>
+                <div class="detail-overview-badges">{{overview_tags_html}}</div>
+              </div>
+            </div>
+            <div class="detail-facts">{{overview_facts_html}}</div>
+            <div class="detail-stats">{{overview_stats_html}}</div>
+          </section>
+
+          {{conclusion_section_html}}
+
+          <section class="detail-section" data-slot="scope">
+            <div class="detail-section-head">
+              <h2 class="detail-section-title">{{scope_title}}</h2>
+              <span class="detail-section-note">{{scope_note}}</span>
+            </div>
+            <div class="detail-fields">{{scope_fields_html}}</div>
+          </section>
+
+          {{metrics_section_html}}
+
+          <section class="detail-section" data-slot="records">
+            <div class="detail-section-head">
+              <h2 class="detail-section-title">{{records_title}}</h2>
+              <span class="detail-section-note">{{records_note}}</span>
+            </div>
+            {{records_body_html}}
+          </section>
+
+          {{progress_section_html}}
+          {{timeline_section_html}}
+          {{charts_section_html}}
+
+          <section class="detail-section" data-slot="summary">
+            <div class="detail-section-head">
+              <h2 class="detail-section-title">{{summary_title}}</h2>
+              <span class="detail-section-note">{{summary_note}}</span>
+            </div>
+            {{summary_body_html}}
+          </section>
+
+          {{special_tips_section_html}}
+          {{modal_html}}
+        </div>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        const root = document.getElementById('render-root');
+
+        function applyFallback() {
+          if (!root.innerHTML.includes('{{')) {
+            return;
+          }
+
+          const fallback = {
+            '{{domain}}': 'expense-control',
+            '{{document_kind}}': 'expense-reimbursement',
+            '{{title}}': '业务单据公共模板',
+            '{{meta}}': '模板 ID domain-public-document | 示例：招待客户餐费报销审批单 | 更新时间：2026-06-01 14:10',
+            '{{overview_media_html}}': '<div class="detail-overview-avatar">单</div>',
+            '{{overview_title}}': '招待客户餐费报销审批单',
+            '{{overview_status_html}}': '<span class="detail-chip detail-chip-warning">财务复核中</span>',
+            '{{overview_subtitle}}': '适用于报销、采购、付款、合同、请假、结算、工单等业务单据。示例展示了状态、参与方、明细页签、流程阶段、时间线、图表增强和弹窗详情的统一承载方式。',
+            '{{overview_tags_html}}': '<span class="detail-chip">业务单据</span><span class="detail-chip detail-chip-neutral">公共模板</span><span class="detail-chip detail-chip-info">兼容页签与弹窗</span>',
+            '{{overview_facts_html}}': '<div class="detail-fact"><span class="detail-fact-label">单据编号</span><span class="detail-fact-value">TAPL2511201681</span></div><div class="detail-fact"><span class="detail-fact-label">发起人</span><span class="detail-fact-value">王小明</span></div><div class="detail-fact"><span class="detail-fact-label">当前节点</span><span class="detail-fact-value">财务复核</span></div><div class="detail-fact"><span class="detail-fact-label">单据类型</span><span class="detail-fact-value">费用报销单</span></div>',
+            '{{overview_stats_html}}': '<div class="detail-stat"><span class="detail-stat-label">申请金额</span><span class="detail-stat-value">1,200</span></div><div class="detail-stat"><span class="detail-stat-label">票据张数</span><span class="detail-stat-value">3</span></div><div class="detail-stat"><span class="detail-stat-label">风险项数</span><span class="detail-stat-value">2</span></div><div class="detail-stat"><span class="detail-stat-label">流程阶段</span><span class="detail-stat-value">4</span></div>',
+            '{{conclusion_section_html}}': '<section class="detail-section" data-slot="conclusion"><div class="detail-section-head"><h2 class="detail-section-title">当前判断</h2><span class="detail-section-note">有结论时优先前置展示</span></div><div class="analysis-card"><div class="analysis-card-head"><h3 class="analysis-card-title">当前结论</h3></div><p class="analysis-card-text">本单据存在 <span class="detail-summary-strong">2 项需人工复核风险</span>，当前不建议直接放行。</p></div><div class="analysis-card"><div class="analysis-card-head"><h3 class="analysis-card-title">分析发现</h3></div><p class="analysis-card-text">购买方名称、纳税人识别号与系统预填信息不一致，且票据内容命中 <span class="analysis-hl">敏感词校验</span>，建议进入人工复核。</p></div></section>',
+            '{{scope_title}}': '基础单据信息',
+            '{{scope_note}}': '单据字段与参与方字段优先放在这里',
+            '{{scope_fields_html}}': '<div class="detail-field"><span class="detail-field-label">会计主体</span><span class="detail-field-value">用友网络科技股份有限公司</span></div><div class="detail-field"><span class="detail-field-label">申请部门</span><span class="detail-field-value">用户体验部</span></div><div class="detail-field"><span class="detail-field-label">申请日期</span><span class="detail-field-value">2025-12-27</span></div><div class="detail-field"><span class="detail-field-label">关联事由</span><span class="detail-field-value">招待重要客户的事项申请单</span></div><div class="detail-field"><span class="detail-field-label">收款对象</span><span class="detail-field-value">王小明</span></div><div class="detail-field"><span class="detail-field-label">附件状态</span><span class="detail-field-value">已上传发票与事项申请截图</span></div>',
+            '{{metrics_section_html}}': '<section class="detail-section" data-slot="metrics"><div class="detail-section-head"><h2 class="detail-section-title">关键指标</h2><span class="detail-section-note">金额、数量、比例、风险数、周期按需出现</span></div><div class="detail-metrics"><div class="detail-metric detail-metric--blue"><span class="detail-metric-label">申请金额</span><span class="detail-metric-value">1,200<span class="detail-metric-unit">元</span></span><div class="detail-metric-trend detail-metric-trend-neutral"><span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">→</span>与发票金额一致</span></div></div><div class="detail-metric detail-metric--info"><span class="detail-metric-label">票据数量</span><span class="detail-metric-value">3<span class="detail-metric-unit">张</span></span><div class="detail-metric-trend detail-metric-trend-neutral"><span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">→</span>2 张交通票据，1 张餐饮票据</span></div></div><div class="detail-metric detail-metric--warning"><span class="detail-metric-label">风险项数</span><span class="detail-metric-value">2<span class="detail-metric-unit">项</span></span><div class="detail-metric-trend detail-metric-trend-negative"><span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>需要人工复核</span></div></div><div class="detail-metric detail-metric--danger"><span class="detail-metric-label">处理耗时</span><span class="detail-metric-value">1.5<span class="detail-metric-unit">天</span></span><div class="detail-metric-trend detail-metric-trend-positive"><span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>低于同类单据均值</span></div></div></div></section>',
+            '{{records_title}}': '单据明细',
+            '{{records_note}}': '多组明细并列时启用页签',
+            '{{records_body_html}}': '<div data-tabs><div class="tabs"><div class="tab-item tab-item-active" data-tab="expense-items">报销明细</div><div class="tab-item" data-tab="invoice-items">账单明细</div><div class="tab-item" data-tab="allocation-items">费用分摊</div></div><div class="tab-content"><div class="tab-panel tab-panel-active" data-panel="expense-items"><div class="table-wrap"><table class="table"><thead><tr><th>费用类别</th><th>金额</th><th>发生日期</th><th>招待人数</th><th>预算项目</th><th>备注</th></tr></thead><tbody><tr><td>交通费</td><td>700.00</td><td>2025-10-10</td><td>6</td><td>用户调研</td><td>立项申请</td></tr><tr><td>餐饮费</td><td>500.00</td><td>2025-10-10</td><td>6</td><td>用户调研</td><td>立项申请</td></tr></tbody></table></div></div><div class="tab-panel" data-panel="invoice-items"><div class="table-wrap"><table class="table"><thead><tr><th>票据类型</th><th>金额</th><th>发生日期</th><th>发票号</th><th>开票日期</th></tr></thead><tbody><tr><td>交通费发票</td><td>CNY300.00</td><td>2025-10-10</td><td>121010112211</td><td>2025-12-12</td></tr><tr><td>交通费发票</td><td>CNY300.00</td><td>2025-10-10</td><td>121010112212</td><td>2025-12-12</td></tr><tr><td>餐饮费发票</td><td>CNY600.00</td><td>2025-10-10</td><td>121010112213</td><td>2025-12-12</td></tr></tbody></table></div></div><div class="tab-panel" data-panel="allocation-items"><div class="detail-fields"><div class="detail-field"><span class="detail-field-label">承担部门</span><span class="detail-field-value">用户体验部</span></div><div class="detail-field"><span class="detail-field-label">分摊比例</span><span class="detail-field-value">100%</span></div><div class="detail-field"><span class="detail-field-label">分摊金额</span><span class="detail-field-value">CNY1,200.00</span></div><div class="detail-field"><span class="detail-field-label">费用项目</span><span class="detail-field-value">招待费-部门</span></div></div></div></div></div>',
+            '{{progress_section_html}}': '<section class="detail-section" data-slot="progress"><div class="detail-section-head"><h2 class="detail-section-title">流程阶段</h2><span class="detail-section-note">有明确阶段时显示</span></div><div class="detail-progress"><div class="detail-progress-step is-done"><span class="detail-progress-dot"></span><span class="detail-progress-label">提交申请</span></div><div class="detail-progress-step is-done"><span class="detail-progress-dot"></span><span class="detail-progress-label">部门审核</span></div><div class="detail-progress-step is-active"><span class="detail-progress-dot"></span><span class="detail-progress-label">财务复核</span></div><div class="detail-progress-step"><span class="detail-progress-dot"></span><span class="detail-progress-label">稽核检查</span></div><div class="detail-progress-step"><span class="detail-progress-dot"></span><span class="detail-progress-label">付款完成</span></div></div></section>',
+            '{{timeline_section_html}}': '<section class="detail-section" data-slot="timeline"><div class="detail-section-head"><h2 class="detail-section-title">处理时间线</h2><span class="detail-section-note">审批流、操作流、履历记录统一承接</span></div><div class="detail-timeline"><div class="detail-timeline-item is-latest"><span class="detail-timeline-dot"></span><span class="detail-timeline-time">2025-12-28 09:30</span><p class="detail-timeline-title">财务复核中</p><p class="detail-timeline-desc">张会计正在复核票据与事项申请的一致性。</p></div><div class="detail-timeline-item is-done"><span class="detail-timeline-dot"></span><span class="detail-timeline-time">2025-12-27 15:00</span><p class="detail-timeline-title">部门审核通过</p><p class="detail-timeline-desc">李经理确认招待事由和预算项目无误。</p></div><div class="detail-timeline-item is-done"><span class="detail-timeline-dot"></span><span class="detail-timeline-time">2025-12-27 14:30</span><p class="detail-timeline-title">提交申请</p><p class="detail-timeline-desc">王小明提交报销单并上传 3 张票据。</p></div></div></section>',
+            '{{charts_section_html}}': '<section class="detail-section" data-slot="charts"><div class="detail-section-head"><h2 class="detail-section-title">单据增强图表</h2><span class="detail-section-note">只有有统计或分析诉求时才显示</span></div><div class="chart-grid"><article class="chart-card chart-card-wide"><div class="chart-card-head"><div><h3 class="chart-card-title">费用构成</h3><p class="chart-card-note">说明当前单据的费用类别占比。</p></div></div><div id="chart-document-structure" class="chart-shell-wide"></div></article><article class="chart-card"><div class="chart-card-head"><div><h3 class="chart-card-title">节点耗时</h3><p class="chart-card-note">说明单据在关键流程节点的停留情况。</p></div></div><div id="chart-document-duration" class="chart-shell-square"></div></article></div></section>',
+            '{{summary_title}}': '结算与动作摘要',
+            '{{summary_note}}': '结算信息、补充动作和扩展详情入口统一放在这里',
+            '{{summary_body_html}}': '<div class="detail-summary"><span class="detail-summary-label">结算对象</span><span class="detail-summary-text">王小明｜CNY1,200.00｜中国银行海淀支行｜账号 <span class="detail-summary-strong">************1212</span>。如需查看完整结算维度，请打开详情弹窗。</span></div><div class="analysis-card"><div class="analysis-card-head"><h3 class="analysis-card-title">建议动作</h3></div><p class="analysis-card-text">先补齐 <span class="analysis-hl">购方识别信息</span> 与 <span class="analysis-hl">票据敏感词说明</span>，再由财务完成复核。<button type="button" class="btn btn-link btn-sm" data-modal-trigger="settlement-modal">查看结算详情</button></p></div>',
+            '{{special_tips_section_html}}': '<section class="detail-section" data-slot="special-tips"><div class="detail-section-head"><h2 class="detail-section-title">补充说明</h2><span class="detail-section-note">只放最终提醒和口径限制</span></div><div class="alert alert-warning"><div class="alert-content"><div class="space space-between space-md"><div class="alert-title text-warning">重点提醒</div><span class="detail-chip detail-chip-warning">需人工复核</span></div><div class="space space-col space-sm"><p class="analysis-card-text text-secondary">当前票据中的敏感词说明尚未补齐，且仍有 <span class="text-warning">人工复核未完成</span> 的事项。</p><p class="analysis-card-text text-secondary">因此本页结论更适合作为 <span class="text-warning">预警和跟进依据</span>，不建议直接作为最终放行口径。</p></div></div></div></section>',
+            '{{modal_html}}': '<div class="modal modal-centered" id="settlement-modal" aria-hidden="true"><div class="modal-mask" data-modal-close></div><div class="modal-content"><div class="modal-header"><span class="modal-title">结算详情</span><button type="button" class="modal-close" data-modal-close>×</button></div><div class="modal-body"><div class="detail-fields"><div class="detail-field"><span class="detail-field-label">收款人</span><span class="detail-field-value">王小明</span></div><div class="detail-field"><span class="detail-field-label">结算比例</span><span class="detail-field-value">100%</span></div><div class="detail-field"><span class="detail-field-label">结算金额</span><span class="detail-field-value">CNY1,200.00</span></div><div class="detail-field"><span class="detail-field-label">开户行</span><span class="detail-field-value">中国银行海淀支行</span></div><div class="detail-field"><span class="detail-field-label">银行账号</span><span class="detail-field-value">************1212</span></div><div class="detail-field"><span class="detail-field-label">结算说明</span><span class="detail-field-value">敏感字段默认脱敏，完整值由接入方按权限控制。</span></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary btn-md" data-modal-close>关闭</button></div></div></div>'
+          };
+
+          let html = root.innerHTML;
+          Object.entries(fallback).forEach(([key, value]) => {
+            html = html.split(key).join(value);
+          });
+          root.innerHTML = html;
+        }
+
+        function bindTabs(container) {
+          container.querySelectorAll('[data-tabs]').forEach((group) => {
+            const tabBar = group.querySelector('.tabs');
+            if (!tabBar) {
+              return;
+            }
+
+            tabBar.addEventListener('click', (event) => {
+              const tab = event.target.closest('.tab-item[data-tab]');
+              if (!tab) {
+                return;
+              }
+
+              const name = tab.getAttribute('data-tab');
+              group.querySelectorAll('.tab-item[data-tab]').forEach((item) => {
+                item.classList.remove('tab-item-active');
+              });
+              group.querySelectorAll('.tab-panel[data-panel]').forEach((panel) => {
+                panel.classList.remove('tab-panel-active');
+              });
+
+              tab.classList.add('tab-item-active');
+              const panel = group.querySelector('[data-panel="' + name + '"]');
+              if (panel) {
+                panel.classList.add('tab-panel-active');
+              }
+            });
+          });
+        }
+
+        function setModalState(modal, visible) {
+          if (!modal) {
+            return;
+          }
+
+          modal.style.display = visible ? 'block' : 'none';
+          modal.setAttribute('aria-hidden', visible ? 'false' : 'true');
+          document.body.classList.toggle('modal-open', visible);
+        }
+
+        function bindModals(container) {
+          container.querySelectorAll('[data-modal-trigger]').forEach((trigger) => {
+            trigger.addEventListener('click', () => {
+              const modal = document.getElementById(trigger.getAttribute('data-modal-trigger'));
+              setModalState(modal, true);
+            });
+          });
+
+          container.querySelectorAll('.modal').forEach((modal) => {
+            modal.querySelectorAll('[data-modal-close]').forEach((closer) => {
+              closer.addEventListener('click', () => setModalState(modal, false));
+            });
+
+            modal.addEventListener('click', (event) => {
+              if (event.target === modal) {
+                setModalState(modal, false);
+              }
+            });
+          });
+        }
+
+        function initCharts() {
+          if (typeof echarts === 'undefined') {
+            return;
+          }
+
+          if (typeof YonChartRuntimeV12 === 'undefined') {
+            return;
+          }
+
+          const structureEl = document.getElementById('chart-document-structure');
+          const durationEl = document.getElementById('chart-document-duration');
+          if (!structureEl || !durationEl) {
+            return;
+          }
+
+          const chartStyle = getComputedStyle(document.documentElement);
+          const chartBlue = chartStyle.getPropertyValue('--chart-blue').trim() || '#3b82f6';
+          const chartCyan = chartStyle.getPropertyValue('--chart-cyan').trim() || '#06b6d4';
+          const chartOrange = chartStyle.getPropertyValue('--chart-orange').trim() || '#f59e0b';
+
+          YonChartRuntimeV12.mountDonut(structureEl, {
+            colors: [chartBlue, chartCyan, chartOrange],
+            data: [
+              { name: '交通费', value: 700 },
+              { name: '餐饮费', value: 500 }
+            ]
+          });
+
+          YonChartRuntimeV12.mountVerticalBar(durationEl, {
+            colors: [chartBlue],
+            valueAxisName: '小时',
+            categories: ['提交申请', '部门审核', '财务复核', '稽核检查'],
+            series: [
+              {
+                name: '平均耗时',
+                data: [0.3, 0.5, 1.2, 0.8]
+              }
+            ]
+          });
+        }
+
+        applyFallback();
+        bindTabs(document);
+        bindModals(document);
+        window.addEventListener('load', function () {
+          initCharts();
+        });
+      })();
+    </script>
+  </body>
+</html>

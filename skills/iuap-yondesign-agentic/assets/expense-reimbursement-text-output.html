@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>报销审批单示例</title>
+    <link rel="stylesheet" href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/yondesign.css" />
+    <link rel="stylesheet" href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/analytics.css" />
+    <style>
+      .detail-section[data-slot="special-tips"] .alert {
+        border-radius: var(--radius-lg, 12px);
+      }
+    </style>
+  </head>
+  <body class="py-4 px-8">
+    <main class="detail-page detail-page-embedded" data-template="domain-public-document" data-domain="expense-control">
+      <div class="detail-stack">
+        <section class="detail-header" data-slot="header">
+          <h1 class="detail-title">报销说明：招待客户（上海宇通科技）餐费费用报销申请</h1>
+          <p class="detail-meta">
+            「王小明」提单，申请报销金额 CNY1,200.00（发票金额 CNY1,200.00），由用户体验部承担
+          </p>
+          <p class="detail-meta">
+            该单（TAPL25111201681）在 2025-12-27 创建，会计主体为用友网络科技股份有限公司，已关联事由为招待 XXX 项目重要客户的事项申请单。
+          </p>
+        </section>
+
+        <section class="detail-section" data-slot="conclusion">
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">当前结论</h3>
+            </div>
+            <p class="analysis-card-text">
+              本单据存在
+              <span class="detail-summary-strong">2 项需人工复核风险</span>
+              ，当前不建议直接放行。
+            </p>
+          </div>
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">分析发现</h3>
+            </div>
+            <p class="analysis-card-text">
+              当前存在购买方名称、纳税人识别号与系统预填信息不一致的问题，
+              且票据命中 <span class="analysis-hl">敏感词校验</span>，
+              需要先补说明再进入下一步处理。
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="records">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">明细汇总</h2>
+          </div>
+          <div data-record-switch>
+            <div class="detail-fields mb-12">
+              <div class="detail-field detail-metric--blue" data-record-tab="expense">
+                <span class="detail-field-value">报销汇总 CNY1,200.00</span>
+                <span class="detail-field-label">交通费 700 元、餐饮费 500 元</span>
+              </div>
+              <div class="detail-field" data-record-tab="bill">
+                <span class="detail-field-value">账单汇总 CNY1,200.00</span>
+                <span class="detail-field-label">共 3 张票，交通 300×2、餐饮 600</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="tab-panel tab-panel-active" data-record-panel="expense">
+                <div class="table-wrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>费用类别</th>
+                        <th>金额</th>
+                        <th>发生日期</th>
+                        <th>招待人数</th>
+                        <th>预算项目</th>
+                        <th>备注</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>交通费</td>
+                        <td>700.00</td>
+                        <td>2025-10-10</td>
+                        <td>6</td>
+                        <td>用户调研</td>
+                        <td>立项申请</td>
+                      </tr>
+                      <tr>
+                        <td>餐饮费</td>
+                        <td>500.00</td>
+                        <td>2025-10-10</td>
+                        <td>6</td>
+                        <td>用户调研</td>
+                        <td>立项申请</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="tab-panel" data-record-panel="bill">
+                <div class="table-wrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>发票类型</th>
+                        <th>金额</th>
+                        <th>发生日期</th>
+                        <th>发票号码</th>
+                        <th>开票日期</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>交通费发票</td>
+                        <td>300.00</td>
+                        <td>2025-10-10</td>
+                        <td>121010112211</td>
+                        <td>2025-12-12</td>
+                      </tr>
+                      <tr>
+                        <td>交通费发票</td>
+                        <td>300.00</td>
+                        <td>2025-10-10</td>
+                        <td>121010112212</td>
+                        <td>2025-12-12</td>
+                      </tr>
+                      <tr>
+                        <td>餐饮费发票</td>
+                        <td>600.00</td>
+                        <td>2025-10-10</td>
+                        <td>121010112213</td>
+                        <td>2025-12-12</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="allocation">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">费用分摊（体验部 100%）</h2>
+          </div>
+          <div class="detail-fields">
+            <div class="detail-field">
+              <span class="detail-field-label">承担部门</span>
+              <span class="detail-field-value">用户体验部</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">分摊比例</span>
+              <span class="detail-field-value">100%</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">分摊金额</span>
+              <span class="detail-field-value">CNY1,200.00</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">费用项目</span>
+              <span class="detail-field-value">招待费-部门</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">预算项目</span>
+              <span class="detail-field-value">招待费</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="summary">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">结算信息（王小明 100%）</h2>
+            <button type="button" class="btn btn-link btn-sm" data-modal-trigger="settlement-modal">查看详情</button>
+          </div>
+          <div class="detail-facts">
+            <div class="detail-fact">
+              <span class="detail-fact-label">收款人</span>
+              <span class="detail-fact-value">王小明</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">结算比例</span>
+              <span class="detail-fact-value">100%</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">结算金额</span>
+              <span class="detail-fact-value">CNY1,200.00</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">银行账号</span>
+              <span class="detail-fact-value">中国银行海淀支行 611212313123111212</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="modal modal-centered" id="settlement-modal" aria-hidden="true">
+          <div class="modal-mask" data-modal-close></div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="modal-title">结算信息详情</span>
+              <button type="button" class="modal-close" data-modal-close>×</button>
+            </div>
+            <div class="modal-body">
+              <div class="detail-fields">
+                <div class="detail-field">
+                  <span class="detail-field-label">收款人</span>
+                  <span class="detail-field-value">王小明</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field-label">结算比例</span>
+                  <span class="detail-field-value">100%</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field-label">结算金额</span>
+                  <span class="detail-field-value">CNY1,200.00</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field-label">银行账号</span>
+                  <span class="detail-field-value">中国银行海淀支行 611212313123111212</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="detail-section" data-slot="timeline">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">审批流程</h2>
+          </div>
+          <div class="detail-timeline">
+            <div class="detail-timeline-item is-done">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2025-12-27 14:30</span>
+              <p class="detail-timeline-title">提交申请</p>
+              <p class="detail-timeline-desc">王小明 提交报销申请</p>
+            </div>
+            <div class="detail-timeline-item is-done">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2025-12-27 15:00</span>
+              <p class="detail-timeline-title">部门审核</p>
+              <p class="detail-timeline-desc">李经理 审核通过</p>
+            </div>
+            <div class="detail-timeline-item is-latest">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2025-12-28 09:30</span>
+              <p class="detail-timeline-title">财务复核</p>
+              <p class="detail-timeline-desc">张会计 复核中</p>
+            </div>
+            <div class="detail-timeline-item">
+              <span class="detail-timeline-dot"></span>
+              <span class="detail-timeline-time">2025-12-28 10:00</span>
+              <p class="detail-timeline-title">稽核检查</p>
+              <p class="detail-timeline-desc">系统自动稽核，发现风险 2 项</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="special-tips">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">补充说明</h2>
+            <span class="detail-section-note">只放最终提醒和口径限制</span>
+          </div>
+          <div class="alert alert-warning">
+            <div class="alert-content">
+              <div class="space space-between space-md">
+                <div class="alert-title text-warning">重点提醒</div>
+                <span class="detail-chip detail-chip-warning">需人工复核</span>
+              </div>
+              <div class="space space-col space-sm">
+                <p class="analysis-card-text text-secondary">
+                  当前仍存在 <span class="text-warning">购买方名称与纳税人识别号不一致</span> 的问题，
+                  且票据命中敏感词校验。
+                </p>
+                <p class="analysis-card-text text-secondary">
+                  因此本页结论只适合作为 <span class="text-warning">预警与跟进依据</span>，
+                  不建议直接作为最终放行口径。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        function bindRecordCards() {
+          const container = document.querySelector('[data-record-switch]');
+          if (!container) {
+            return;
+          }
+
+          const cards = container.querySelectorAll('[data-record-tab]');
+          const panels = container.querySelectorAll('[data-record-panel]');
+
+          cards.forEach((card) => {
+            card.addEventListener('click', () => {
+              const name = card.getAttribute('data-record-tab');
+              cards.forEach((item) => item.classList.remove('detail-metric--blue'));
+              panels.forEach((panel) => panel.classList.remove('tab-panel-active'));
+              card.classList.add('detail-metric--blue');
+              const panel = container.querySelector('[data-record-panel="' + name + '"]');
+              if (panel) {
+                panel.classList.add('tab-panel-active');
+              }
+            });
+          });
+        }
+
+        function bindTabs() {
+          document.querySelectorAll('[data-tabs]').forEach((tabBar) => {
+            tabBar.addEventListener('click', (event) => {
+              const tab = event.target.closest('.tab-item[data-tab]');
+              if (!tab) {
+                return;
+              }
+
+              const section = tabBar.closest('.detail-section');
+              if (!section) {
+                return;
+              }
+
+              const name = tab.getAttribute('data-tab');
+              section.querySelectorAll('.tab-item[data-tab]').forEach((item) => item.classList.remove('tab-item-active'));
+              section.querySelectorAll('.tab-panel[data-panel]').forEach((panel) => panel.classList.remove('tab-panel-active'));
+              tab.classList.add('tab-item-active');
+              const panel = section.querySelector('[data-panel="' + name + '"]');
+              if (panel) {
+                panel.classList.add('tab-panel-active');
+              }
+            });
+          });
+        }
+
+        function setModalState(modal, visible) {
+          if (!modal) {
+            return;
+          }
+
+          modal.style.display = visible ? 'block' : 'none';
+          modal.setAttribute('aria-hidden', visible ? 'false' : 'true');
+          document.body.classList.toggle('modal-open', visible);
+        }
+
+        function bindModals() {
+          document.querySelectorAll('[data-modal-trigger]').forEach((trigger) => {
+            trigger.addEventListener('click', () => {
+              setModalState(document.getElementById(trigger.getAttribute('data-modal-trigger')), true);
+            });
+          });
+
+          document.querySelectorAll('.modal').forEach((modal) => {
+            modal.querySelectorAll('[data-modal-close]').forEach((closer) => {
+              closer.addEventListener('click', () => setModalState(modal, false));
+            });
+          });
+        }
+
+        bindRecordCards();
+        bindTabs();
+        bindModals();
+      })();
+    </script>
+  </body>
+</html>

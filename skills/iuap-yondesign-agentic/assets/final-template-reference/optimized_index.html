@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公共报告模板｜问数右侧预览</title>
+  <link rel="stylesheet" href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/yondesign.css">
+  <link rel="stylesheet" href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/analytics.css">
+  <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/echarts.min.js"></script>
+  <script src="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/chart_runtime_v1_2.js"></script>
+</head>
+<body>
+  <main class="detail-page detail-page-embedded">
+    <div class="detail-stack">
+      <section class="detail-header">
+        <h1 class="detail-title">公共报告模板</h1>
+        <p class="detail-meta">适用于问数结果 / 专项分析 / 周期报告 | 最近更新 2026-05-22</p>
+      </section>
+
+      <section class="detail-overview">
+        <div class="detail-overview-head">
+          <div class="detail-overview-avatar">析</div>
+          <div class="detail-overview-body">
+            <div class="detail-overview-title-row">
+              <span class="detail-overview-title">分析结果预览</span>
+            </div>
+            <p class="detail-overview-subtitle">面向问数、ChatBI、BI Copilot 类输出场景，按"答案结论、关键指标、证据图表、明细记录、风险动作"的顺序组织内容，适合嵌入右侧紧凑预览区。</p>
+            <div class="detail-overview-badges">
+              <span class="detail-chip">回答范围明确</span>
+              <span class="detail-chip detail-chip-neutral">口径可追溯</span>
+              <span class="detail-chip detail-chip-info">证据链完整</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-facts">
+          <div class="detail-fact">
+            <span class="detail-fact-label">回答问题</span>
+            <span class="detail-fact-value">替换为本次问数或分析问题</span>
+          </div>
+          <div class="detail-fact">
+            <span class="detail-fact-label">统计范围</span>
+            <span class="detail-fact-value">替换为组织、项目、对象或时间范围</span>
+          </div>
+          <div class="detail-fact">
+            <span class="detail-fact-label">数据来源</span>
+            <span class="detail-fact-value">统一数据源 / 明细表 / 人工校验</span>
+          </div>
+          <div class="detail-fact">
+            <span class="detail-fact-label">更新时间</span>
+            <span class="detail-fact-value">生成时刻或数据批次时间</span>
+          </div>
+        </div>
+
+        <div class="detail-stats">
+          <div class="detail-stat">
+            <span class="detail-stat-label">核心结论</span>
+            <span class="detail-stat-value">1</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">关键指标</span>
+            <span class="detail-stat-value">4</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">证据图表</span>
+            <span class="detail-stat-value">8</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">建议动作</span>
+            <span class="detail-stat-value">2</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">核心结论</h2>
+          <span class="detail-section-note">首屏优先回答用户问题</span>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-head">
+            <h3 class="analysis-card-title">当前判断</h3>
+          </div>
+          <p class="analysis-card-text">
+            本次分析对象整体处于 <span class="detail-summary-strong">稳定可推进</span> 状态，关键指标保持在目标区间内；需重点跟踪异常波动、口径差异和待闭环事项。
+          </p>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-head">
+            <h3 class="analysis-card-title">分析发现</h3>
+          </div>
+          <p class="analysis-card-text">
+            主指标表现稳定，总体处于目标区间，趋势未出现连续下滑。需重点关注 <span class="analysis-hl">结构差异</span> 与 <span class="analysis-hl">异常波动</span>，
+            其中 <span class="analysis-hl">分类 B</span> 占比较上期上升 <span class="analysis-hl">3.2pp</span>，
+            <span class="analysis-hl">项目 C</span> 得分连续 3 期低于基线。
+            建议对偏差项建立责任人机制，并在下期报告中补充归因说明。
+          </p>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-card-head">
+            <h3 class="analysis-card-title">明细解读</h3>
+          </div>
+          <p class="analysis-card-text">
+            从分布维度看，<span class="analysis-hl">数据完整性</span> 与 <span class="analysis-hl">环比稳定性</span> 表现优异，
+            而 <span class="analysis-hl">异常可解释</span> 维度评分偏低（52~72 分），
+            拉低了综合评价。建议优先提升数据质量校验流程的覆盖率。
+          </p>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">分析口径</h2>
+          <span class="detail-section-note">先交代可信边界，再展开指标</span>
+        </div>
+        <div class="detail-fields">
+          <div class="detail-field">
+            <span class="detail-field-label">统计周期</span>
+            <span class="detail-field-value">按日、按周、按月或项目阶段替换</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-field-label">对象范围</span>
+            <span class="detail-field-value">替换为本次分析覆盖的主体范围</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-field-label">计算规则</span>
+            <span class="detail-field-value">说明指标口径、排除项和汇总方式</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-field-label">可信说明</span>
+            <span class="detail-field-value">标注数据批次、校验状态和人工补录边界</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">关键指标</h2>
+          <span class="detail-section-note">指标应能在图表或明细中找到依据</span>
+        </div>
+        <div class="detail-metrics">
+          <div class="detail-metric detail-metric--blue">
+            <span class="detail-metric-label">目标达成率</span>
+            <span class="detail-metric-value">92<span class="detail-metric-unit">%</span></span>
+            <div class="detail-metric-trend detail-metric-trend-positive">
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>同比 +2.1pp</span>
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>环比 +3.2pp</span>
+            </div>
+          </div>
+          <div class="detail-metric detail-metric--info">
+            <span class="detail-metric-label">有效样本数</span>
+            <span class="detail-metric-value">1,286<span class="detail-metric-unit">条</span></span>
+            <div class="detail-metric-trend detail-metric-trend-neutral">
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">→</span>同比 -0.3%</span>
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↑</span>环比 +1.8%</span>
+            </div>
+          </div>
+          <div class="detail-metric detail-metric--warning">
+            <span class="detail-metric-label">异常关注项</span>
+            <span class="detail-metric-value">3<span class="detail-metric-unit">项</span></span>
+            <div class="detail-metric-trend detail-metric-trend-negative">
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>同比 -2 项</span>
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>环比 -1 项</span>
+            </div>
+          </div>
+          <div class="detail-metric detail-metric--danger">
+            <span class="detail-metric-label">平均处理周期</span>
+            <span class="detail-metric-value">5.6<span class="detail-metric-unit">天</span></span>
+            <div class="detail-metric-trend detail-metric-trend-positive">
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>同比 -1.2 天</span>
+              <span class="detail-metric-trend-item"><span class="detail-metric-trend-marker">↓</span>环比 -0.8 天</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">处理进度</h2>
+          <span class="detail-section-note">当前所处阶段</span>
+        </div>
+        <div class="detail-progress">
+          <div class="detail-progress-step is-done">
+            <span class="detail-progress-dot"></span>
+            <span class="detail-progress-label">数据准备</span>
+          </div>
+          <div class="detail-progress-step is-done">
+            <span class="detail-progress-dot"></span>
+            <span class="detail-progress-label">分析验证</span>
+          </div>
+          <div class="detail-progress-step is-active">
+            <span class="detail-progress-dot"></span>
+            <span class="detail-progress-label">报告撰写</span>
+          </div>
+          <div class="detail-progress-step">
+            <span class="detail-progress-dot"></span>
+            <span class="detail-progress-label">审核发布</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">履历信息</h2>
+          <span class="detail-section-note">最近更新记录</span>
+        </div>
+        <div class="detail-timeline">
+          <div class="detail-timeline-item is-latest">
+            <span class="detail-timeline-dot"></span>
+            <span class="detail-timeline-time">2026-05-24</span>
+            <p class="detail-timeline-title">报告终稿发布</p>
+            <p class="detail-timeline-desc">完成最终审核与格式校验，已同步至公共报告库。</p>
+          </div>
+          <div class="detail-timeline-item is-done">
+            <span class="detail-timeline-dot"></span>
+            <span class="detail-timeline-time">2026-05-22</span>
+            <p class="detail-timeline-title">图表与证据补充</p>
+            <p class="detail-timeline-desc">补全趋势分析、结构比对和多维验证图表，核实数据来源。</p>
+          </div>
+          <div class="detail-timeline-item is-done">
+            <span class="detail-timeline-dot"></span>
+            <span class="detail-timeline-time">2026-05-20</span>
+            <p class="detail-timeline-title">关键指标核对</p>
+            <p class="detail-timeline-desc">复核目标达成率、样本覆盖和异常项口径，确认指标口径一致。</p>
+          </div>
+          <div class="detail-timeline-item is-done">
+            <span class="detail-timeline-dot"></span>
+            <span class="detail-timeline-time">2026-05-18</span>
+            <p class="detail-timeline-title">数据源接入</p>
+            <p class="detail-timeline-desc">完成问数引擎对接与元数据映射，拉取近 3 期基线数据。</p>
+          </div>
+          <div class="detail-timeline-item">
+            <span class="detail-timeline-dot"></span>
+            <span class="detail-timeline-time">2026-05-15</span>
+            <p class="detail-timeline-title">分析范围确认</p>
+            <p class="detail-timeline-desc">与业务方确定分析维度、排除规则和可信度评估标准。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">关键发现</h2>
+          <span class="detail-section-note">保留 3 条高价值判断</span>
+        </div>
+        <div class="insight-list">
+          <div class="insight-item">
+            <p class="insight-title">主指标表现稳定</p>
+            <p class="insight-desc">总体指标处于目标区间，趋势未出现连续下滑，可作为当前结论的主要支撑。</p>
+          </div>
+          <div class="insight-item">
+            <p class="insight-title">结构差异需要解释</p>
+            <p class="insight-desc">不同对象或分组之间存在差异，应在图表和明细中补充来源、占比和变化原因。</p>
+          </div>
+          <div class="insight-item">
+            <p class="insight-title">异常项需单独闭环</p>
+            <p class="insight-desc">风险、偏差和待办动作应独立列示，便于评审时确认责任、时限和处理状态。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">证据图表</h2>
+          <span class="detail-section-note">图表只服务本次结论，不做组件展示台</span>
+        </div>
+        <div class="chart-grid">
+          <article class="chart-card chart-card-wide">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">趋势证据</h3>
+                  <p class="chart-card-note">用于说明关键指标在周期内的变化方向和波动点。</p>
+                </div>
+              </div>
+              <div class="chart-shell-wide">
+                <div id="chart-trend" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">结构证据</h3>
+                  <p class="chart-card-note">用于说明不同分类、来源或对象的占比关系。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-structure" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">排行证据</h3>
+                  <p class="chart-card-note">用于说明 Top 项、尾部项或重点对象的对照关系。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-ranking" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card chart-card-wide">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">多维验证</h3>
+                  <p class="chart-card-note">用于说明不同维度之间的均衡性、长短板和综合评分。</p>
+                </div>
+              </div>
+              <div class="chart-shell-wide" style="min-height:520px;">
+                <div id="chart-radar" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">达成度</h3>
+                  <p class="chart-card-note">用于说明核心 KPI 的完成进度和距离目标的差距。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-gauge" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">关联分析</h3>
+                  <p class="chart-card-note">用于说明两个指标之间的相关性和分布特征。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-scatter" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">组合证据</h3>
+                  <p class="chart-card-note">用于说明样本量与异常率的双指标联动关系。</p>
+                </div>
+              </div>
+              <div class="chart-shell-wide">
+                <div id="chart-combo" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">转化漏斗</h3>
+                  <p class="chart-card-note">用于说明从数据采集到有效证据的逐级转化率。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-funnel" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card chart-card-wide">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">热点分布</h3>
+                  <p class="chart-card-note">用于说明不同周期与分类下的异常关注热度矩阵。</p>
+                </div>
+              </div>
+              <div class="chart-shell-wide">
+                <div id="chart-heatmap" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card chart-card-wide">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">层级占比</h3>
+                  <p class="chart-card-note">用于说明多层级分类的体量占比与嵌套关系。</p>
+                </div>
+              </div>
+              <div class="chart-shell-wide" style="min-height:420px;">
+                <div id="chart-treemap" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+          <article class="chart-card">
+              <div class="chart-card-head">
+                <div>
+                  <h3 class="chart-card-title">构成趋势</h3>
+                  <p class="chart-card-note">用于说明各分类值随周期的构成变化与增长趋势。</p>
+                </div>
+              </div>
+              <div class="chart-shell-square">
+                <div id="chart-stackedbar" style="width:100%;height:100%;"></div>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">明细与动作</h2>
+          <span class="detail-section-note">把异常、责任和下一步放在同一张表内</span>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>事项</th>
+                <th>证据说明</th>
+                <th>状态</th>
+                <th>下一步动作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>主指标</td>
+                <td>总体保持目标区间，趋势连续稳定</td>
+                <td><span class="tag tag-success">正常</span></td>
+                <td>继续按当前节奏跟踪</td>
+              </tr>
+              <tr>
+                <td>结构差异</td>
+                <td>部分分组占比变化明显，需要补充原因</td>
+                <td><span class="tag tag-info">待解释</span></td>
+                <td>补充分类口径和归因说明</td>
+              </tr>
+              <tr>
+                <td>异常波动</td>
+                <td>个别对象存在短期偏离或数据缺口</td>
+                <td><span class="tag tag-warning">关注</span></td>
+                <td>确认责任人并在下周期闭环</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-head">
+          <h2 class="detail-section-title">结论与建议</h2>
+          <span class="detail-section-note">面向复核和后续执行</span>
+        </div>
+        <div class="detail-summary">
+          <span class="detail-summary-label">建议动作</span>
+          <span class="detail-summary-text">保留当前方案并持续跟踪主指标；同时对 <span class="detail-summary-strong">异常波动</span> 与 <span class="detail-summary-strong">口径差异</span> 建立责任人、截止时间和复核记录，避免报告只展示结果而不形成动作闭环。</span>
+        </div>
+      </section>
+    </div>
+  </main>
+<script>
+(function() {
+  var style = getComputedStyle(document.documentElement);
+  function tok(name) { return style.getPropertyValue(name).trim(); }
+
+  var C = {
+    blue:   tok('--chart-blue')   || '#3b82f6',
+    cyan:   tok('--chart-cyan')   || '#06b6d4',
+    green:  tok('--chart-green')  || '#22c55e',
+    yellow: tok('--chart-yellow') || '#eab308',
+    orange: tok('--chart-orange') || '#f97316',
+    purple: tok('--chart-purple') || '#8b5cf6',
+    textPrimary:  tok('--chart-text-primary')  || '#111827',
+    textSecondary: tok('--chart-text-primary') || '#111827',
+    textTertiary: tok('--chart-text-tertiary') || '#6b7280',
+    textMuted:    tok('--chart-text-muted')    || '#9ca3af',
+    border:       tok('--chart-border-subtle') || '#e5e7eb',
+    bgCard:       tok('--chart-bg-card')       || '#ffffff',
+    font:         tok('--chart-font-family')   || '-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif',
+  };
+
+  if (typeof echarts === 'undefined' || typeof YonChartRuntimeV12 === 'undefined') return;
+
+  YonChartRuntimeV12.mountArea(document.getElementById('chart-trend'), {
+    colors: [C.blue, C.textMuted],
+    categories: ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12'],
+    series: [
+      { name: '本期', data: [82,85,78,90,88,95,91,86,93,97,89,94] },
+      { name: '上期', data: [75,72,80,78,82,79,76,81,77,83,80,78] }
+    ]
+  });
+
+  YonChartRuntimeV12.mountDonut(document.getElementById('chart-structure'), {
+    colors: [C.blue, C.cyan, C.green, C.yellow, C.orange, C.purple],
+    data: [
+      { value: 35, name: '分类 A' },
+      { value: 24, name: '分类 B' },
+      { value: 17, name: '分类 C' },
+      { value: 11, name: '分类 D' },
+      { value: 8, name: '分类 E' },
+      { value: 5, name: '分类 F' }
+    ]
+  });
+
+  YonChartRuntimeV12.mountHorizontalBar(document.getElementById('chart-ranking'), {
+    colors: [C.blue],
+    rows: [
+      { name: '项目 A', value: 92, countText: '92', ratioText: '高' },
+      { name: '项目 B', value: 78, countText: '78', ratioText: '中高' },
+      { name: '项目 C', value: 65, countText: '65', ratioText: '中' },
+      { name: '项目 D', value: 54, countText: '54', ratioText: '中低' },
+      { name: '项目 E', value: 41, countText: '41', ratioText: '低' }
+    ]
+  });
+
+  YonChartRuntimeV12.mountRadar(document.getElementById('chart-radar'), {
+    colors: [C.blue, C.textMuted],
+    indicators: [
+      { name: '数据完整性', max: 100 },
+      { name: '趋势一致性', max: 100 },
+      { name: '口径规范性', max: 100 },
+      { name: '异常可解释', max: 100 },
+      { name: '动作闭环率', max: 100 },
+      { name: '环比稳定性', max: 100 }
+    ],
+    series: [
+      { name: '本期', values: [88, 92, 85, 72, 79, 90] },
+      { name: '上期', values: [76, 80, 82, 68, 71, 78] }
+    ]
+  });
+
+  YonChartRuntimeV12.mountGauge(document.getElementById('chart-gauge'), {
+    colors: [C.orange, C.yellow, C.green],
+    value: 78.5,
+    min: 0,
+    max: 100,
+    unit: '%',
+    name: '综合达成率'
+  });
+
+  YonChartRuntimeV12.mountScatter(document.getElementById('chart-scatter'), {
+    colors: [C.yellow, C.orange],
+    series: [
+      {
+        name: '正向关联',
+        data: [
+          [38,45],[52,60],[61,72],[44,50],[55,64],[70,82],[48,53],[58,68],[63,75],
+          [42,48],[51,58],[66,76],[57,66],[50,57],[68,78],[47,54],[60,71]
+        ]
+      },
+      {
+        name: '关注项',
+        data: [[82,28],[28,81],[91,22]]
+      }
+    ]
+  });
+
+  YonChartRuntimeV12.mountCombo(document.getElementById('chart-combo'), {
+    colors: [C.blue, C.orange],
+    categories: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+    leftAxisName: '样本量',
+    rightAxisName: '异常率(%)',
+    series: [
+      { name: '样本量', type: 'bar', data: [286, 312, 258, 340, 298, 365, 280, 320] },
+      { name: '异常率', type: 'line', yAxisIndex: 1, data: [8.2, 7.5, 10.4, 6.8, 9.1, 5.2, 11.3, 7.8] }
+    ]
+  });
+
+  YonChartRuntimeV12.mountFunnel(document.getElementById('chart-funnel'), {
+    colors: [C.blue, C.cyan, C.green, C.yellow, C.orange],
+    data: [
+      { value: 450, name: '原始数据' },
+      { value: 380, name: '质量校验' },
+      { value: 295, name: '口径匹配' },
+      { value: 210, name: '关联验证' },
+      { value: 128, name: '有效证据' }
+    ]
+  });
+
+  YonChartRuntimeV12.mountNative(document.getElementById('chart-heatmap'), {
+    chartType: 'heatmap',
+    option: {
+      tooltip: { position: 'top' },
+      grid: { top: 8, right: 20, bottom: 16, left: 90 },
+      xAxis: {
+        type: 'category',
+        data: ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10'],
+        splitArea: { show: true },
+        axisLabel: { color: C.textMuted, fontSize: 11, fontFamily: C.font }
+      },
+      yAxis: {
+        type: 'category',
+        data: ['数据完整性','趋势一致性','口径规范性','异常可解释','动作闭环率','环比稳定性'],
+        splitArea: { show: true },
+        axisLabel: { color: C.textTertiary, fontSize: 12, fontFamily: C.font }
+      },
+      visualMap: {
+        min: 40,
+        max: 95,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 0,
+        inRange: { color: [C.blue + '33', C.cyan, C.green + 'cc', C.yellow, C.orange] },
+        textStyle: { color: C.textMuted, fontSize: 10, fontFamily: C.font }
+      },
+      series: [{
+        type: 'heatmap',
+        data: [
+          [0,0,85],[0,1,72],[0,2,90],[0,3,68],[0,4,55],[0,5,78],[0,6,92],[0,7,63],[0,8,48],[0,9,80],
+          [1,0,92],[1,1,85],[1,2,78],[1,3,65],[1,4,58],[1,5,82],[1,6,88],[1,7,71],[1,8,52],[1,9,76],
+          [2,0,78],[2,1,82],[2,2,70],[2,3,90],[2,4,62],[2,5,55],[2,6,73],[2,7,85],[2,8,68],[2,9,58],
+          [3,0,60],[3,1,55],[3,2,72],[3,3,48],[3,4,82],[3,5,68],[3,6,54],[3,7,45],[3,8,75],[3,9,62],
+          [4,0,72],[4,1,68],[4,2,58],[4,3,76],[4,4,52],[4,5,80],[4,6,65],[4,7,55],[4,8,42],[4,9,70],
+          [5,0,88],[5,1,75],[5,2,82],[5,3,62],[5,4,70],[5,5,90],[5,6,78],[5,7,68],[5,8,58],[5,9,85]
+        ].map(function(d) { return [d[1], d[0], d[2]]; }),
+        label: { show: true, color: C.textPrimary, fontSize: 10, fontFamily: C.font },
+        emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(0,0,0,0.15)' } }
+      }]
+    }
+  });
+
+  YonChartRuntimeV12.mountNative(document.getElementById('chart-treemap'), {
+    chartType: 'treemap',
+    option: {
+      tooltip: {
+        formatter: function(p) {
+          return p.name + '<br/>占比: ' + p.percent + '%<br/>数量: ' + p.value;
+        }
+      },
+      series: [{
+        type: 'treemap',
+        roam: false,
+        nodeClick: false,
+        breadcrumb: { show: false },
+        label: {
+          show: true,
+          formatter: function(p) { return p.name + '\n' + p.percent + '%'; },
+          fontSize: 12,
+          fontFamily: C.font
+        },
+        upperLabel: {
+          show: true,
+          height: 24,
+          fontSize: 12,
+          fontFamily: C.font,
+          color: C.textPrimary
+        },
+        itemStyle: {
+          borderColor: '#ffffff',
+          borderWidth: 2,
+          gapWidth: 2
+        },
+        levels: [
+          { color: [C.blue, C.cyan], itemStyle: { borderWidth: 0, gapWidth: 3 } },
+          { colorSaturation: [0.3, 0.6] }
+        ],
+        data: [
+          {
+            name: '数据类',
+            value: 180,
+            children: [
+              { name: '完整性', value: 72 },
+              { name: '时效性', value: 48 },
+              { name: '一致性', value: 36 },
+              { name: '覆盖率', value: 24 }
+            ]
+          },
+          {
+            name: '方法类',
+            value: 140,
+            children: [
+              { name: '口径规范', value: 55 },
+              { name: '计算规则', value: 42 },
+              { name: '排除标准', value: 28 },
+              { name: '校验流程', value: 15 }
+            ]
+          },
+          {
+            name: '结论类',
+            value: 110,
+            children: [
+              { name: '趋势判断', value: 40 },
+              { name: '结构归因', value: 32 },
+              { name: '异常标注', value: 22 },
+              { name: '动作闭环', value: 16 }
+            ]
+          }
+        ],
+        color: [C.blue, C.cyan, C.green, C.yellow, C.orange, C.purple]
+      }]
+    }
+  });
+
+  YonChartRuntimeV12.mountStackedBar(document.getElementById('chart-stackedbar'), {
+    colors: [C.blue, C.cyan, C.green, C.yellow],
+    categories: ['W5','W6','W7','W8','W9','W10'],
+    series: [
+      { name: '数据类', data: [42,48,55,52,60,65] },
+      { name: '方法类', data: [28,32,30,35,38,33] },
+      { name: '结论类', data: [18,22,20,24,26,28] },
+      { name: '其他', data: [12,8,10,9,7,14] }
+    ]
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>业务单据公共模板兼容入口</title>
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/yondesign.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://static-dc-core1.yonyoucloud.com/tinper-agentic/0.0.3/analytics.css"
+    />
+  </head>
+  <body class="py-4 px-8">
+    <main class="detail-page detail-page-embedded" data-template="domain-public-detail" data-domain="compatibility-alias">
+      <div class="detail-stack">
+        <section class="detail-header" data-slot="header">
+          <h1 class="detail-title">业务单据公共模板兼容入口</h1>
+          <p class="detail-meta">兼容别名：domain-public-detail -> 推荐正式模板名：domain-public-document</p>
+        </section>
+
+        <section class="detail-overview" data-slot="overview">
+          <div class="detail-overview-head">
+            <div class="detail-overview-avatar">兼</div>
+            <div class="detail-overview-body">
+              <div class="detail-overview-title-row">
+                <span class="detail-overview-title">业务单据公共模板别名预览</span>
+                <span class="detail-chip detail-chip-info">兼容入口</span>
+              </div>
+              <p class="detail-overview-subtitle">
+                当前文件保留旧命名入口，结构和交互已与 `domain-public-document` 对齐，建议新需求统一使用正式模板名。
+              </p>
+              <div class="detail-overview-badges">
+                <span class="detail-chip">业务单据</span>
+                <span class="detail-chip detail-chip-neutral">兼容别名</span>
+                <span class="detail-chip detail-chip-info">可直接预览</span>
+              </div>
+            </div>
+          </div>
+          <div class="detail-facts">
+            <div class="detail-fact">
+              <span class="detail-fact-label">正式模板</span>
+              <span class="detail-fact-value">domain-public-document</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">兼容入口</span>
+              <span class="detail-fact-value">domain-public-detail</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">主资产</span>
+              <span class="detail-fact-value">assets/domain-public-document.html</span>
+            </div>
+            <div class="detail-fact">
+              <span class="detail-fact-label">首个示例</span>
+              <span class="detail-fact-value">报销审批单</span>
+            </div>
+          </div>
+          <div class="detail-stats">
+            <div class="detail-stat">
+              <span class="detail-stat-label">标准槽位</span>
+              <span class="detail-stat-value">12</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">可选增强能力</span>
+              <span class="detail-stat-value">4</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">默认图表上限</span>
+              <span class="detail-stat-value">2</span>
+            </div>
+            <div class="detail-stat">
+              <span class="detail-stat-label">兼容别名</span>
+              <span class="detail-stat-value">1</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="conclusion">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">兼容说明</h2>
+            <span class="detail-section-note">旧命名可继续识别，但不再作为独立模板路线</span>
+          </div>
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">当前建议</h3>
+            </div>
+            <p class="analysis-card-text">
+              保留 `domain-public-detail` 仅用于兼容旧入口，所有新单据模板需求统一推荐使用
+              <span class="detail-summary-strong">domain-public-document</span>。
+            </p>
+          </div>
+          <div class="analysis-card">
+            <div class="analysis-card-head">
+              <h3 class="analysis-card-title">别名能力</h3>
+            </div>
+            <p class="analysis-card-text">
+              兼容入口与正式模板共享同一类骨架能力：支持 <span class="analysis-hl">页签</span>、
+              <span class="analysis-hl">弹窗</span>、<span class="analysis-hl">进度条</span>、
+              <span class="analysis-hl">时间线</span> 与按需图表增强。
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="scope">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">兼容映射</h2>
+            <span class="detail-section-note">把旧入口清晰映射到新的公共单据模板语义</span>
+          </div>
+          <div class="detail-fields">
+            <div class="detail-field">
+              <span class="detail-field-label">模板类型</span>
+              <span class="detail-field-value">业务单据公共模板兼容页</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">推荐场景</span>
+              <span class="detail-field-value">报销、采购、付款、合同、请假、工单等单据</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">不推荐场景</span>
+              <span class="detail-field-value">报告、问数、经营分析、主体档案</span>
+            </div>
+            <div class="detail-field">
+              <span class="detail-field-label">交互范围</span>
+              <span class="detail-field-value">tabs / modal / charts 的通用展示交互</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="records">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">建议迁移路径</h2>
+            <span class="detail-section-note">旧命名保留，新命名优先</span>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>旧入口</th>
+                  <th>当前状态</th>
+                  <th>推荐动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>domain-public-detail</td>
+                  <td><span class="tag tag-warning">兼容别名</span></td>
+                  <td>继续接受，但新需求不要再新增此命名</td>
+                </tr>
+                <tr>
+                  <td>assets/domain-public-detail.html</td>
+                  <td><span class="tag tag-info">兼容资产</span></td>
+                  <td>预览时可打开，模板定义请查看 domain-public-document</td>
+                </tr>
+                <tr>
+                  <td>assets/domain-public-document.html</td>
+                  <td><span class="tag tag-success">正式模板</span></td>
+                  <td>新单据场景统一从这里派生</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-section" data-slot="summary">
+          <div class="detail-section-head">
+            <h2 class="detail-section-title">结论</h2>
+            <span class="detail-section-note">兼容别名保留，正式命名前置</span>
+          </div>
+          <div class="detail-summary">
+            <span class="detail-summary-label">下一步</span>
+            <span class="detail-summary-text">
+              如果要创建新的业务单据模板，请直接复制
+              <span class="detail-summary-strong">assets/domain-public-document.html</span>
+              的结构，并在文档与路由中使用 `domain-public-document`。
+            </span>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
